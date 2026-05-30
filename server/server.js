@@ -14,9 +14,14 @@ app.use(cors());
 app.use(express.json());
 
 app.use(
-    "/api/auth",
-    require("./routes/authRoutes")
+  "/api/auth",
+  require("./routes/authRoutes")
 );
+
+// basic health check
+app.get("/ping", (req, res) => {
+  res.send("Welcome to PlacementNova API");
+});
 
 const PORT = process.env.PORT || 8000;
 
